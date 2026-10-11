@@ -15,9 +15,9 @@
         extend: {
           colors: {
             brand: {
-              red: '#e50039',
-              darkRed: '#a8052a',
-              glowRed: '#ff003c'
+              red: '#CC0000',
+              vibrantRed: '#E51837',
+              darkRed: '#a8052a'
             }
           },
           fontFamily: {
@@ -27,22 +27,21 @@
       }
     };
   </script>
-<style data-purpose="custom-glow-effects">
-    /* Custom deep moody backdrop gradient matching the source image */
-    .bg-custom-gradient {
-      background: radial-gradient(circle at 10% 20%, rgba(120, 0, 25, 0.45) 0%, rgba(10, 2, 5, 0.95) 45%, #050102 100%),
-                  radial-gradient(circle at 50% 70%, rgba(180, 0, 45, 0.22) 0%, transparent 60%);
-      background-color: #060103;
+<style data-purpose="custom-styling">
+    /* Subtle warm neutral light gradient background */
+    .bg-light-ambient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 40%, #F3F4F6 100%);
+      background-color: #F9FAFB;
     }
 
-    /* Ambient glow for the reward card */
-    .reward-card-glow {
-      box-shadow: 0 10px 45px -8px rgba(229, 0, 57, 0.65), 0 0 25px rgba(229, 0, 57, 0.35);
+    /* Ambient realistic soft shadow for the reward card */
+    .reward-card-shadow {
+      box-shadow: 0 16px 36px -6px rgba(204, 0, 0, 0.32), 0 8px 16px -4px rgba(0, 0, 0, 0.08);
     }
 
-    /* Ambient glow for the primary CTA button */
-    .btn-glow {
-      box-shadow: 0 8px 30px -4px rgba(229, 0, 57, 0.7);
+    /* Primary CTA button shadow */
+    .btn-target-shadow {
+      box-shadow: 0 10px 25px -4px rgba(229, 24, 55, 0.42), 0 4px 10px -2px rgba(204, 0, 0, 0.2);
     }
 
     /* Live Toast Styling & Transitions */
@@ -51,7 +50,7 @@
     }
     .toast-hidden {
       opacity: 0 !important;
-      transform: translateY(20px) scale(0.96) !important;
+      transform: translateY(-12px) scale(0.95) !important;
       pointer-events: none;
     }
     .toast-visible {
@@ -61,84 +60,32 @@
     }
   </style>
 </head>
-<body class="bg-custom-gradient text-white min-h-screen flex justify-center selection:bg-rose-600 selection:text-white font-sans antialiased">
+<body class="bg-light-ambient text-[#111827] min-h-screen flex justify-center selection:bg-rose-500 selection:text-white font-sans antialiased">
 <!-- Main Mobile Device Screen Container -->
 <main class="w-full max-w-[420px] px-5 py-6 flex flex-col items-center justify-start min-h-screen relative" data-purpose="mobile-viewport-container" style="padding-bottom: 130px;">
 <!-- BEGIN: TopBar -->
-<header class="w-full flex items-center justify-center gap-3 pt-2 pb-5" data-purpose="header-notification">
+<header class="w-full flex items-center gap-3 pt-2 pb-5 justify-start" data-purpose="header-notification">
 <!-- Polygon outline icon -->
-<div class="flex-shrink-0" data-purpose="brand-icon">
-<svg class="w-7 h-7 text-[#e50039]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<polygon points="12 2 21 7.5 21 16.5 12 22 3 16.5 3 7.5 12 2"></polygon>
-</svg>
-</div>
+<div class="flex-shrink-0" data-purpose="brand-icon"><svg aria-label="Target Logo" class="text-[#CC0000]" fill="none" style="width: 76px; height: 76px;" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" fill="currentColor" r="50"></circle><circle cx="50" cy="50" fill="#FFFFFF" r="33.33"></circle><circle cx="50" cy="50" fill="currentColor" r="16.67"></circle></svg></div>
 <!-- Urgency badge pill -->
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0a1a0f] border border-[#1b4324] shadow-sm animate-badge-pulse" data-purpose="urgency-pill">
-<!-- Neon lightning icon -->
-<svg class="w-3.5 h-3.5 text-[#30e263] fill-current" viewbox="0 0 24 24">
-<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-</svg>
-<span class="text-[12.5px] font-medium text-[#30e263] tracking-tight">Act now, rewards are moving fast!</span>
-</div>
 </header>
 <!-- END: TopBar -->
 <!-- BEGIN: MainHeadline -->
 <section class="text-center pt-2 pb-6 px-1" data-purpose="hero-title">
-<h1 class="text-[44px] leading-[1.08] font-black tracking-[-0.035em] text-white">
+<h1 class="text-[44px] leading-[1.08] font-black tracking-[-0.035em] text-[#111827]">
         Get $750<br/>Towards Target
       </h1>
 </section>
 <!-- END: MainHeadline -->
 <!-- BEGIN: HowItWorksCard -->
-<section class="w-full bg-[#12080d]/80 rounded-[28px] border border-white/[0.08] p-6 pb-7 mb-7 backdrop-blur-md" data-purpose="how-it-works-steps">
-<!-- Section Tag -->
-<h2 class="text-center text-[12.5px] font-extrabold tracking-[0.2em] text-[#e50039] uppercase mb-6">
-        HOW IT WORKS
-      </h2>
-<!-- Step List -->
-<div class="space-y-5">
-<!-- Step 1 -->
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-[#e50039] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
-            1
-          </div>
-<div class="flex-1 leading-snug">
-<h3 class="text-white font-bold text-[17px] tracking-tight">Enter your email address</h3>
-<p class="text-neutral-400 text-[13.5px] font-normal mt-0.5">For notifications and rewards</p>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-[#e50039] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
-            2
-          </div>
-<div class="flex-1 leading-snug">
-<h3 class="text-white font-bold text-[17px] tracking-tight">Complete 3-5 simple offers</h3>
-<p class="text-neutral-400 text-[13.5px] font-normal mt-0.5">The more you do, the more you earn</p>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-[#e50039] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
-            3
-          </div>
-<div class="flex-1 leading-snug">
-<h3 class="text-white font-bold text-[17px] tracking-tight">Receive your Target gift card</h3>
-<p class="text-neutral-400 text-[13.5px] font-normal mt-0.5">Redeem instantly at checkout</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: HowItWorksCard -->
-<!-- BEGIN: RewardCard -->
-<div class="w-full max-w-[320px] mx-auto reward-card-glow rounded-[24px] overflow-hidden bg-[#e50039] text-white flex flex-col mb-7 relative animate-card-float shimmer-effect transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.99] cursor-pointer" data-purpose="reward-gift-card">
+<div class="w-full max-w-[320px] mx-auto reward-card-shadow rounded-[24px] overflow-hidden bg-[#CC0000] text-white flex flex-col mb-7 relative transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.99] cursor-pointer" data-purpose="reward-gift-card">
 <!-- Upper part with amount and branding -->
 <div class="py-7 px-5 flex flex-col items-center justify-center text-center relative z-10">
 <!-- Amount & Cart Icon Row -->
 <div class="flex items-center justify-center gap-2 mb-2">
 <span class="text-[46px] font-black tracking-tight leading-none">$750</span>
 <!-- Shopping Cart Icon -->
-<svg class="w-7 h-7 fill-current stroke-current transition-transform duration-300 group-hover:scale-110" viewbox="0 0 24 24">
+<svg class="w-7 h-7 fill-current stroke-current transition-transform duration-300" viewbox="0 0 24 24">
 <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
 </svg>
 </div>
@@ -148,177 +95,118 @@
         </div>
 </div>
 <!-- Disclaimer ribbon inside the card -->
-<div class="bg-[#c4123c] py-2 px-3 text-center border-t border-red-400/20 relative z-10">
-<p class="text-[11.5px] text-white/90 font-medium tracking-normal">
+<div class="bg-[#B00000] py-2 px-3 text-center border-t border-white/15 relative z-10">
+<p class="text-[11.5px] text-white/95 font-medium tracking-normal">
           Offer not sponsored-endorsed by this brand.
         </p>
 </div>
-</div><section class="w-full flex flex-col items-center mb-8" data-purpose="cta-section">
-<a class="w-full py-4 rounded-full bg-[#e50039] hover:bg-[#d00034] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 text-white font-extrabold text-[21px] tracking-tight btn-glow animate-cta-glow relative overflow-hidden shimmer-effect cursor-pointer text-center block" href="https://giftclick.org/aff_c?offer_id=1178&amp;aff_id=181627" rel="noopener noreferrer" target="_blank">Get Started</a>
-<p class="text-neutral-400 text-[14px] mt-4 font-normal text-center">
+</div><section class="w-full bg-white rounded-[28px] border border-[#E5E7EB] p-6 pb-7 mb-7 shadow-sm" data-purpose="how-it-works-steps">
+<!-- Section Tag -->
+<h2 class="text-center text-[12.5px] font-extrabold tracking-[0.2em] text-[#CC0000] uppercase mb-6">
+        HOW IT WORKS
+      </h2>
+<!-- Step List -->
+<div class="space-y-5">
+<!-- Step 1 -->
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-[#CC0000] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+            1
+          </div>
+<div class="flex-1 leading-snug">
+<h3 class="text-[#111827] font-bold text-[17px] tracking-tight">Enter your email address</h3>
+<p class="text-[#6B7280] text-[13.5px] font-normal mt-0.5">For notifications and rewards</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-[#CC0000] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+            2
+          </div>
+<div class="flex-1 leading-snug">
+<h3 class="text-[#111827] font-bold text-[17px] tracking-tight">Complete 3-5 simple offers</h3>
+<p class="text-[#6B7280] text-[13.5px] font-normal mt-0.5">The more you do, the more you earn</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-[#CC0000] text-white font-bold text-sm flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+            3
+          </div>
+<div class="flex-1 leading-snug">
+<h3 class="text-[#111827] font-bold text-[17px] tracking-tight">Receive your Target gift card</h3>
+<p class="text-[#6B7280] text-[13.5px] font-normal mt-0.5">Redeem instantly at checkout</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HowItWorksCard -->
+<!-- BEGIN: RewardCard -->
+<!-- END: RewardCard -->
+<!-- BEGIN: CallToActionSection -->
+<section class="w-full flex flex-col items-center mb-8" data-purpose="cta-section">
+<a class="w-full py-4 rounded-full bg-[#CC0000] hover:bg-[#B30000] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-white font-extrabold text-[21px] tracking-tight btn-target-shadow relative overflow-hidden cursor-pointer text-center block" href="https://giftclick.org/aff_c?offer_id=1178&amp;aff_id=181627" rel="noopener noreferrer" target="_blank">Get Started</a>
+<p class="text-[#6B7280] text-[14px] mt-4 font-normal text-center">
         No purchase necessary
       </p>
 </section>
-<!-- END: RewardCard -->
-<!-- BEGIN: CallToActionSection -->
-<!-- BEGIN: SocialProofAndReviews -->
-<section class="w-full flex flex-col items-center mb-8 space-y-4" data-purpose="social-proof-reviews">
-<!-- Live activity toast/pill -->
-<div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12080d]/90 border border-emerald-500/30 text-[12px] shadow-sm">
-<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-<span class="text-neutral-300 font-medium"><strong class="text-white font-bold">18 people</strong> currently claiming rewards right now</span>
-</div>
-<!-- Trust & Community Rating Row -->
-<div class="w-full bg-[#12080d]/80 rounded-[20px] border border-white/[0.08] p-4 flex items-center justify-between backdrop-blur-md">
-<div class="flex items-center gap-3">
-<!-- Overlapping Avatar Pill/Circles -->
-<div class="flex -space-x-2.5 overflow-hidden">
-<div class="w-8 h-8 rounded-full ring-2 ring-[#12080d] bg-gradient-to-tr from-rose-600 to-amber-500 text-white font-bold text-[11px] flex items-center justify-center uppercase shadow-sm">JM</div>
-<div class="w-8 h-8 rounded-full ring-2 ring-[#12080d] bg-gradient-to-tr from-blue-600 to-cyan-400 text-white font-bold text-[11px] flex items-center justify-center uppercase shadow-sm">DK</div>
-<div class="w-8 h-8 rounded-full ring-2 ring-[#12080d] bg-gradient-to-tr from-purple-600 to-pink-500 text-white font-bold text-[11px] flex items-center justify-center uppercase shadow-sm">ER</div>
-<div class="w-8 h-8 rounded-full ring-2 ring-[#12080d] bg-gradient-to-tr from-emerald-600 to-teal-400 text-white font-bold text-[10px] flex items-center justify-center shadow-sm">+14k</div>
-</div>
-<div>
-<div class="flex items-center gap-1 text-amber-400 text-[13px] leading-none mb-0.5">
-<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-<span class="text-white font-bold text-[12.5px] ml-1">4.9/5</span>
-</div>
-<p class="text-neutral-400 text-[11.5px]">from 14,800+ claims</p>
-</div>
-</div>
-<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/20 text-[#30e263] text-[11px] font-semibold">
-<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>
-<span>Verified</span>
-</div>
-</div>
-<!-- Compact Reviews Card Section -->
-<div class="w-full bg-[#12080d]/80 rounded-[24px] border border-white/[0.08] p-5 backdrop-blur-md space-y-4">
-<div class="flex items-center justify-between pb-1 border-b border-white/[0.06]">
-<h3 class="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#e50039]">Recent Claims &amp; Reviews</h3>
-<span class="text-[11px] text-neutral-400 font-medium">Updated 2m ago</span>
-</div>
-<!-- Review 1 -->
-<div class="p-3.5 rounded-[16px] bg-white/[0.03] border border-white/[0.05] space-y-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="text-white font-bold text-[13.5px]">Jessica M.</span>
-<span class="text-neutral-400 text-[11px]">Austin, TX</span>
-</div>
-<span class="text-amber-400 text-[11px] tracking-wide">★★★★★</span>
-</div>
-<p class="text-neutral-300 text-[12.5px] leading-snug">“Took me about 20 mins to finish 3 game offers. The Target digital card arrived right in my inbox!”</p>
-<div class="flex items-center justify-between text-[11px] text-neutral-400 pt-0.5">
-<span class="text-[#e50039] font-medium">Claimed $750</span>
-<span>2 hrs ago</span>
-</div>
-</div>
-<!-- Review 2 -->
-<div class="p-3.5 rounded-[16px] bg-white/[0.03] border border-white/[0.05] space-y-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="text-white font-bold text-[13.5px]">David K.</span>
-<span class="text-neutral-400 text-[11px]">Orlando, FL</span>
-</div>
-<span class="text-amber-400 text-[11px] tracking-wide">★★★★★</span>
-</div>
-<p class="text-neutral-300 text-[12.5px] leading-snug">“Legit! Already used it on Target groceries and supplies last weekend.”</p>
-<div class="flex items-center justify-between text-[11px] text-neutral-400 pt-0.5">
-<span class="text-[#e50039] font-medium">Claimed $750</span>
-<span>5 hrs ago</span>
-</div>
-</div>
-<!-- Review 3 -->
-<div class="p-3.5 rounded-[16px] bg-white/[0.03] border border-white/[0.05] space-y-1.5">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="text-white font-bold text-[13.5px]">Elena R.</span>
-<span class="text-neutral-400 text-[11px]">Chicago, IL</span>
-</div>
-<span class="text-amber-400 text-[11px] tracking-wide">★★★★★</span>
-</div>
-<p class="text-neutral-300 text-[12.5px] leading-snug">“Was skeptical at first, but following the simple instructions paid off. Super happy!”</p>
-<div class="flex items-center justify-between text-[11px] text-neutral-400 pt-0.5">
-<span class="text-[#e50039] font-medium">Claimed $750</span>
-<span>Yesterday</span>
-</div>
-</div>
-</div>
-</section>
-<!-- END: SocialProofAndReviews -->
 <!-- END: CallToActionSection -->
+<!-- BEGIN: SocialProofAndReviews -->
+<!-- END: SocialProofAndReviews -->
 <!-- BEGIN: Footer -->
-<footer class="w-full text-center pb-6 mt-auto space-y-2 text-neutral-500 text-[11.5px]" data-purpose="footer-disclaimers">
-<p class="text-neutral-500 font-normal">
+<footer class="w-full text-center pb-6 mt-auto space-y-2 text-[#6B7280] text-[11.5px]" data-purpose="footer-disclaimers">
+<p class="text-[#6B7280] font-normal">
         No purchase necessary. Void where prohibited. See official rules.
       </p>
 <!-- Legal Links -->
-<div class="flex items-center justify-center gap-4 text-neutral-400 text-[12px]">
-<a class="hover:text-white underline underline-offset-2 transition-colors" href="#rules">Official Rules</a>
-<a class="hover:text-white underline underline-offset-2 transition-colors" href="#privacy">Privacy</a>
-<a class="hover:text-white underline underline-offset-2 transition-colors" href="#terms">Terms</a>
+<div class="flex items-center justify-center gap-4 text-[#4B5563] text-[12px]">
+<a class="hover:text-[#111827] underline underline-offset-2 transition-colors" href="#rules">Official Rules</a>
+<a class="hover:text-[#111827] underline underline-offset-2 transition-colors" href="#privacy">Privacy</a>
+<a class="hover:text-[#111827] underline underline-offset-2 transition-colors" href="#terms">Terms</a>
 </div>
 </footer>
 <!-- END: Footer -->
 </main>
 <!-- BEGIN: LiveSocialProofToastPopup -->
-<aside aria-label="Recent claim notification" aria-live="polite" class="fixed z-50 left-4 right-4 max-w-[390px] mx-auto toast-hidden transition-all duration-500 ease-out" id="live-toast" role="status" style="bottom: 96px;">
-<div class="w-full rounded-[18px] p-3 pl-3.5 pr-3 shadow-2xl flex items-center justify-between gap-3 text-left relative overflow-hidden backdrop-blur-xl border border-white/[0.14]" style="background: rgba(20, 14, 18, 0.94); box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.8), 0 0 20px -3px rgba(229, 0, 57, 0.25);">
-<!-- Ambient subtle card glow line -->
-<div class="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#e50039] to-transparent opacity-75"></div>
-<!-- Left: Avatar with green active dot -->
-<div class="relative flex-shrink-0">
-<div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[13px] text-white shadow-md ring-1 ring-white/10" id="toast-avatar" style="background: linear-gradient(135deg, #e50039 0%, #ff5277 100%);">
-MT
-</div>
-<!-- Green pulsing online dot -->
-<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-[#140e12] flex items-center justify-center">
-<span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping opacity-75"></span>
+<aside aria-live="polite" class="fixed top-4 right-4 z-50 max-w-[270px] w-auto toast-hidden" id="live-toast">
+<div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] border border-gray-100 p-2.5 flex items-center gap-2.5 relative">
+<!-- Verification Badge / Icon -->
+<div class="relative flex-shrink-0" id="toast-avatar-container">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#CC0000] to-[#FF4D6D] flex items-center justify-center text-white text-[11px] font-bold shadow-sm" id="toast-avatar">
+          SM
+        </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center">
+<svg class="w-2 h-2 text-white stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </span>
 </div>
-<!-- Center: User claim details -->
-<div class="flex-1 min-w-0 pr-1">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="text-[13px] font-bold text-white tracking-tight truncate max-w-[170px]" id="toast-name-loc">Marcus T. from Miami, FL</span>
-<span class="inline-flex items-center px-1.5 py-0.2 rounded bg-emerald-500/15 border border-emerald-500/30 text-[10px] font-bold text-emerald-400 leading-tight">Verified</span>
+<!-- Message text content -->
+<div class="flex-1 min-w-0 pr-4">
+<p class="text-[12px] font-bold text-gray-900 truncate leading-tight" id="toast-name-loc">Sarah M. from Austin, TX</p>
+<p class="text-[11px] text-gray-600 font-medium leading-tight mt-0.5 truncate" id="toast-action">just claimed $750 Target Card</p>
+<p class="text-[9.5px] font-semibold text-emerald-600 leading-none mt-1 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span id="toast-time">Just now</span>
+</p>
 </div>
-<div class="flex items-center gap-1.5 text-[12px] text-neutral-300 mt-0.5 leading-snug">
-<span class="text-white font-semibold flex items-center gap-1">
-Claimed <strong class="text-[#ff3b68] font-black">$750</strong> Target Card
-</span>
-</div>
-<div class="flex items-center gap-1.5 text-[10.5px] text-neutral-400 mt-0.5">
-<svg class="w-3 h-3 text-[#30e263] fill-current" viewbox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-<span id="toast-time">38s ago</span>
-<span>•</span>
-<span class="text-neutral-400">Instant Delivery</span>
-</div>
-</div>
-<!-- Right: Mini Target card pill & Dismiss 'X' button -->
-<div class="flex flex-col items-end justify-between self-stretch flex-shrink-0 py-0.5 pl-1">
-<button aria-label="Dismiss notification" class="text-neutral-400 hover:text-white p-1 rounded-full transition-colors active:scale-90" id="toast-close" type="button">
-<svg class="w-3.5 h-3.5 stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<line x1="18" x2="6" y1="6" y2="18"></line>
-<line x1="6" x2="18" y1="6" y2="6"></line>
-</svg>
+<!-- Dismiss button -->
+<button aria-label="Close notification" class="absolute top-1.5 right-1.5 text-gray-400 hover:text-gray-600 p-1" id="toast-close" type="button">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
 </button>
-<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#e50039]/20 border border-[#e50039]/30 text-[10px] font-black text-[#ff3b68] tracking-wider uppercase">
-$750
-</div>
-</div>
 </div>
 </aside>
 <script>
   (function() {
     const claims = [
-      { nameLoc: "Marcus T. from Miami, FL", time: "38s ago", initials: "MT", gradient: "linear-gradient(135deg, #e50039 0%, #ff5277 100%)" },
-      { nameLoc: "Sophia L. from Dallas, TX", time: "1m ago", initials: "SL", gradient: "linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)" },
-      { nameLoc: "Brian K. from Phoenix, AZ", time: "2m ago", initials: "BK", gradient: "linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)" },
-      { nameLoc: "Ashley D. from Atlanta, GA", time: "45s ago", initials: "AD", gradient: "linear-gradient(135deg, #059669 0%, #10b981 100%)" },
-      { nameLoc: "Carlos M. from San Diego, CA", time: "Just now", initials: "CM", gradient: "linear-gradient(135deg, #d97706 0%, #f59e0b 100%)" }
+      { nameLoc: "Sarah M. from Austin, TX", action: "just claimed $750 Target Card", time: "Just now", initials: "SM", gradient: "linear-gradient(135deg, #CC0000 0%, #ff4d6d 100%)" },
+      { nameLoc: "Michael B. from Tampa, FL", action: "received a $750 Target Gift Card", time: "1m ago", initials: "MB", gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)" },
+      { nameLoc: "Jessica R. from Columbus, OH", action: "just claimed $750 Target Card", time: "2m ago", initials: "JR", gradient: "linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)" },
+      { nameLoc: "David K. from Phoenix, AZ", action: "received a $750 Target Gift Card", time: "3m ago", initials: "DK", gradient: "linear-gradient(135deg, #059669 0%, #10b981 100%)" },
+      { nameLoc: "Amanda W. from Denver, CO", action: "just claimed $750 Target Card", time: "4m ago", initials: "AW", gradient: "linear-gradient(135deg, #d97706 0%, #f59e0b 100%)" },
+      { nameLoc: "James L. from Charlotte, NC", action: "received a $750 Target Gift Card", time: "Just now", initials: "JL", gradient: "linear-gradient(135deg, #CC0000 0%, #ea580c 100%)" }
     ];
 
     const toast = document.getElementById("live-toast");
     const toastNameLoc = document.getElementById("toast-name-loc");
+    const toastAction = document.getElementById("toast-action");
     const toastTime = document.getElementById("toast-time");
     const toastAvatar = document.getElementById("toast-avatar");
     const closeBtn = document.getElementById("toast-close");
@@ -331,6 +219,7 @@ $750
 
     function applyClaimData(claim) {
       toastNameLoc.textContent = claim.nameLoc;
+      if (toastAction) toastAction.textContent = claim.action;
       toastTime.textContent = claim.time;
       toastAvatar.textContent = claim.initials;
       toastAvatar.style.background = claim.gradient;
@@ -342,10 +231,10 @@ $750
       toast.classList.remove("toast-hidden");
       toast.classList.add("toast-visible");
 
-      // Stay visible for 4.5 seconds for reading
+      // Stay visible for 4.2 seconds
       cycleTimeout = setTimeout(() => {
         hideToast();
-      }, 4500);
+      }, 4200);
     }
 
     function hideToast() {
@@ -354,18 +243,18 @@ $750
 
       if (isDismissed) return;
 
-      // Rest period: wait 5000ms completely hidden before showing the next toast
+      // Rest period: wait 4.5 seconds before showing next
       cycleTimeout = setTimeout(() => {
         if (isDismissed) return;
         currentIndex = (currentIndex + 1) % claims.length;
         showToast();
-      }, 5000);
+      }, 4500);
     }
 
-    // Initial show after 1.8 seconds
+    // Initial show after 1.5 seconds
     cycleTimeout = setTimeout(() => {
       showToast();
-    }, 1800);
+    }, 1500);
 
     if (closeBtn) {
       closeBtn.addEventListener("click", () => {
@@ -378,4 +267,7 @@ $750
   })();
 </script>
 <!-- END: LiveSocialProofToastPopup -->
-<div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4 pt-3 pb-5" data-purpose="sticky-cta-bar" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: linear-gradient(to top, rgba(8, 2, 5, 0.96) 0%, rgba(10, 2, 5, 0.85) 75%, transparent 100%); border-top: 1px solid rgba(255, 255, 255, 0.08);"><div class="w-full max-w-[420px] flex flex-col items-center gap-1.5"><a class="w-full py-3.5 px-6 rounded-full bg-[#e50039] hover:bg-[#d00034] active:scale-[0.98] transition-all duration-300 text-white font-extrabold text-[17px] tracking-tight flex items-center justify-center gap-2 relative overflow-hidden text-center shadow-lg" href="https://giftclick.org/aff_c?offer_id=1178&amp;aff_id=181627" rel="noopener noreferrer" style="box-shadow: 0 8px 25px -4px rgba(229, 0, 57, 0.65);" target="_blank"><span>Claim $750 Target Reward</span><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><po
+<!-- BEGIN: StickyCTABar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4 pt-3 pb-5 bg-white/95 backdrop-blur-md border-t border-gray-200" data-purpose="sticky-cta-bar"><div class="w-full max-w-[420px] flex flex-col items-center gap-1.5"><a class="w-full py-3.5 px-6 rounded-full bg-[#CC0000] hover:bg-[#B30000] active:scale-[0.98] transition-all duration-300 text-white font-extrabold text-[17px] tracking-tight flex items-center justify-center gap-2 relative overflow-hidden text-center btn-target-shadow" href="https://giftclick.org/aff_c?offer_id=1178&amp;aff_id=181627" rel="noopener noreferrer" target="_blank"><span>Claim $750 Target Reward</span><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></a><p class="text-[11px] font-medium text-[#4B5563] tracking-tight flex items-center gap-1"><span>⚡ Fast &amp; Free</span><span>•</span><span>No purchase necessary</span></p></div></div>
+<!-- END: StickyCTABar -->
+</body></html>
